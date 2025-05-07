@@ -9,7 +9,7 @@
 <meta name="description" content="Dharmachowk Marbles And Tiles. Chitwan's biggest Marbles and Tiles wholesale supplier and retailer for commercial and residential use." />
 
 <link rel="canonical" href="https://www.dharmachowkmarblesandtiles.com.np/" />
-<link rel="stylesheet" href="https://dharmachowkmarblesandtiles.com.np/assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css">
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Dharmachowk Marbles And Tiles" />
@@ -38,7 +38,7 @@
         <ul>
           <li><a href="https://dharmachowkmarblesandtiles.com.np/#about">About</a></li>
           <li><a href="https://dharmachowkmarblesandtiles.com.np/#products">Products</a></li>
-          <li><a href="https://dharmachowkmarblesandtiles.com.np/#contact/">Contact</a></li>
+          <li><a href="https://dharmachowkmarblesandtiles.com.np/contact/">Contact</a></li>
         </ul>
       </div>
     </header>
@@ -143,8 +143,52 @@
 			 
 	  
 	   </div>
+    
+
+
+
             
     </section>
+
+    <section id="our-gallery">
+      <div class="gallery-title">
+          <h2>Our Gallery</h2>
+      </div>
+      <div id="slideshow">
+          <img class="slide active" src="assets/img/gallary1.jpg" alt="Slide">
+          <img class="slide" src="assets/img/gallary2.jpg" alt="Slide">
+         
+          <img class="slide" src="assets/img/gallary4.jpg" alt="Slide">
+          <img class="slide" src="assets/img/gallary5.jpg" alt="Slide">
+          <img class="slide" src="assets/img/gallary6.jpg" alt="Slide">
+          <img class="slide" src="assets/img/gallary7.jpg" alt="Slide">
+          <video class="slide" src="assets/img/gallary8.mp4" controls></video>
+          <video class="slide" src="assets/img/gallary9.mp4" controls></video>
+
+          <button id="prev" onclick="prevSlide()">❮ Prev</button>
+          <button id="next" onclick="nextSlide()">Next ❯</button>
+      </div>
+  </section>
+
+  
+
+  <section id="final-content">
+    <h2>Final Content</h2>
+    <p><strong>Granite</strong> &ndash; High-quality granite materials imported from Rajasthan and South India are available here. Additionally, statues can be provided based on orders.</p>
+    <p><strong>Tiles</strong> &ndash; Various brands and sizes of tiles imported from Nepal and India are available here, along with all related tile materials.<br />Colors &ndash; Different qualities of Jasmine Paints for both exterior and interior use are available here. Skilled workers for decorative patterns in homes are also provided.</p>
+    <p><strong>Concrete Industry</strong> &ndash; All necessary concrete-related materials for construction, such as fencing poles, ring covers, and blocks, are available here. Additionally, Tulsi shrines, flowerpots for home decoration, mosaic tiles, and related materials like roof tiles and others are available.</p>
+</section>
+
+
+
+
+
+
+
+
+
+
+
     <footer id="footer">
 
         <div class="section-footer">
@@ -242,11 +286,10 @@
         
         <p><strong>Useful Links</strong></p>
         <ul>
-          <li><a href="https://writenepali.com/nepali-unicode/">Nepali Unicode</a></li>
-          <li><a href="https://writenepali.com/preeti-unicode/"> Preeti to Unicode</a></li>
-          <li><a href="https://writenepali.com/unicode-preeti/">Unicode to Preeti</a></li>
+          <li><a href="https://onlineearningnepal.com/">Online Earning Nepal</a></li>
+          
         </ul>
-        <p> Copyright ©2021 All rights reserved</p>
+        <p> Copyright ©2025 All rights reserved</p>
 </div>
 		
 		
@@ -259,5 +302,53 @@
   
   
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../assets/js/app.js"></script>
+
+  <script>
+    let slides = document.querySelectorAll('.slide');
+let currentIndex = 0;
+let autoSlide;
+
+// Function to show the current slide
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      if (i === index) {
+          slide.classList.add('active');
+      }
+  });
+}
+
+// Function to go to the next slide
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+}
+
+// Function to go to the previous slide
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  showSlide(currentIndex);
+}
+
+// Start auto-slide
+function startAutoSlide() {
+  autoSlide = setInterval(nextSlide, 3000); // Auto-play every 3 seconds
+}
+
+// Stop auto-slide when cursor is inside slideshow
+document.getElementById('slideshow').addEventListener('mouseenter', () => {
+  clearInterval(autoSlide);
+});
+
+// Resume auto-slide when cursor leaves slideshow
+document.getElementById('slideshow').addEventListener('mouseleave', startAutoSlide);
+
+// Initialize
+showSlide(currentIndex);
+startAutoSlide();
+</script>
+
+
+
 </body>
 </html>
